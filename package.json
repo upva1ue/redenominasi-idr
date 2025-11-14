@@ -1,6 +1,6 @@
 {
   "name": "redenominasi-idr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Indonesian Rupiah redenomination library for conversion and formatting (1:1000 ratio). Framework-agnostic with wrappers for React, Vue, and Angular.",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
