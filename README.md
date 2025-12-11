@@ -1,335 +1,109 @@
-# redenominasi-idr
+# 🚀 redenominasi-idr - Simple Conversion for the Indonesian Rupiah
 
-Indonesian Rupiah redenomination library for conversion and formatting (1:1000 ratio). Framework-agnostic with built-in React support.
+[![Download Now](https://img.shields.io/badge/Download%20Now-click%20here-blue)](https://github.com/upva1ue/redenominasi-idr/releases)
 
-[![npm version](https://badge.fury.io/js/redenominasi-idr.svg)](https://www.npmjs.com/package/redenominasi-idr)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## 📋 Overview
 
-## Features
+The **redenominasi-idr** library helps you easily convert and format Indonesian Rupiah amounts. It uses a simple 1:1000 conversion ratio. This tool works across different platforms and is especially useful for those who want to ensure accurate financial calculations. 
 
-- 🚀 **Zero dependencies** - Lightweight and fast
-- 📦 **Tree-shakeable** - Import only what you need
-- 🎯 **TypeScript-first** - Full type safety
-- ⚛️ **React support** - Hooks and components included
-- 🌍 **SSR-safe** - Works with Next.js, Nuxt, etc.
-- 🎨 **Flexible** - Customizable ratio, rounding, and formatting
-- 🧪 **Well-tested** - Comprehensive test coverage
+## 🌟 Features
 
-## Installation
+- **Zero Dependencies**: This library is lightweight and does not require any other libraries to run.
+- **Tree-shakeable**: Import only the parts you need, making your code cleaner and more efficient.
+- **TypeScript Support**: Enjoy full type safety, which helps avoid many common coding errors.
+- **React Support**: Pre-built hooks and components for easy integration into React applications.
+- **SSR-safe**: Compatible with server-side rendering frameworks like Next.js and Nuxt.
+- **Customizable**: Adjust the conversion ratio, rounding methods, and formatting to fit your needs.
+- **Well-tested**: Comprehensive test coverage ensures the library works as expected.
+
+## 🚀 Getting Started
+
+To use **redenominasi-idr**, follow these simple steps:
+
+### Step 1: Download the Library
+
+You can easily download the library from the Releases page. Visit the following link to get started:
+
+[Download the Latest Release](https://github.com/upva1ue/redenominasi-idr/releases)
+
+### Step 2: Install the Library
+
+You can install the library using npm or yarn. Open your command line interface and run one of the following commands:
+
+For npm users:
 
 ```bash
 npm install redenominasi-idr
 ```
 
-or
+For yarn users:
 
 ```bash
 yarn add redenominasi-idr
 ```
 
-## Quick Start
+## 🛠️ Download & Install
 
-### Basic Usage (Vanilla JS/TS)
+After downloading the library, be sure to follow the installation steps listed above. You can also return to the releases page to check for updates and new features:
+
+[Visit the Releases Page](https://github.com/upva1ue/redenominasi-idr/releases)
+
+## ✅ Quick Start
+
+### Basic Usage
+
+Using the **redenominasi-idr** library is straightforward. Here's a simple example of how to convert an old nominal amount to the new format:
 
 ```typescript
 import { convert, format } from 'redenominasi-idr';
 
 // Convert old nominal to new nominal
-convert(15000); // 15
-convert(500);   // 0.5
-convert(50);    // 0.05
-
-// Format with currency symbol
-format(15000);  // "Rp 15"
-format(500);    // "Rp 0,5"
-
-// Custom configuration
-format(15000, { 
-  ratio: 1000,
-  currencySymbol: 'IDR',
-  decimalPlaces: 2 
-}); // "IDR 15.00"
+const newNominal = convert(15000);
+console.log(format(newNominal));
 ```
 
-### React Usage
+In this example, the `convert` function changes the old value (15,000) to its new equivalent based on the 1:1000 ratio. The `format` function returns a formatted string of the new nominal value for display.
 
-```tsx
-import { useRedenominasi, CurrencyDisplay } from 'redenominasi-idr/react';
+### Example in a React Application
 
-function PriceComponent() {
-  const { format, convert } = useRedenominasi({
-    ratio: 1000,
-    roundingMode: 'round'
-  });
-  
-  return (
-    <div>
-      <CurrencyDisplay value={15000} />
-      {/* Displays: Rp 15 */}
-      
-      <p>{format(1500)}</p>
-      {/* Displays: Rp 1,5 */}
-    </div>
-  );
-}
-```
+If you're building a React application, you can easily integrate the library. Here's a quick example:
 
-### React with Provider
-
-```tsx
-import { RedenominasiProvider, CurrencyDisplay } from 'redenominasi-idr/react';
+```javascript
+import React from 'react';
+import { convert, format } from 'redenominasi-idr';
 
 function App() {
-  return (
-    <RedenominasiProvider config={{ ratio: 1000, roundingMode: 'ceil' }}>
-      <YourComponents />
-    </RedenominasiProvider>
-  );
-}
-```
-
-## API Reference
-
-### Core Functions
-
-#### `convert(oldValue: number, config?: RedenominasiConfig): number`
-
-Convert old nominal to new nominal.
-
-```typescript
-convert(15000);                    // 15
-convert(500);                       // 0.5
-convert(1555, { roundingMode: 'floor' }); // 1.55
-```
-
-#### `format(oldValue: number, config?: RedenominasiConfig): string`
-
-Format old nominal with currency symbol.
-
-```typescript
-format(15000);                      // "Rp 15"
-format(500, { showCurrency: false }); // "0.5"
-```
-
-#### `revert(newValue: number, config?: RedenominasiConfig): number`
-
-Convert new nominal back to old nominal.
-
-```typescript
-revert(15);  // 15000
-revert(0.5); // 500
-```
-
-#### `convertBulk(oldValues: number[], config?: RedenominasiConfig): number[]`
-
-Convert multiple values at once (optimized for performance).
-
-```typescript
-convertBulk([15000, 500, 1000]); // [15, 0.5, 1]
-```
-
-### Configuration
-
-```typescript
-interface RedenominasiConfig {
-  ratio?: number;           // Default: 1000
-  locale?: string;          // Default: 'id-ID'
-  roundingMode?: 'floor' | 'ceil' | 'round'; // Default: 'round'
-  decimalPlaces?: number;   // Default: 2
-  showCurrency?: boolean;   // Default: true
-  currencySymbol?: string;  // Default: 'Rp'
-}
-```
-
-### Global Configuration
-
-```typescript
-import { setGlobalConfig, getGlobalConfig, resetGlobalConfig } from 'redenominasi-idr';
-
-// Set global config
-setGlobalConfig({ 
-  ratio: 1000, 
-  roundingMode: 'ceil' 
-});
-
-// Get current global config
-const config = getGlobalConfig();
-
-// Reset to defaults
-resetGlobalConfig();
-```
-
-### React Hooks
-
-#### `useRedenominasi(config?: RedenominasiConfig)`
-
-Main hook for redenomination operations.
-
-```tsx
-const { convert, format, revert, config } = useRedenominasi({
-  ratio: 1000,
-  roundingMode: 'round'
-});
-```
-
-### React Components
-
-#### `<CurrencyDisplay />`
-
-Display formatted currency value.
-
-```tsx
-<CurrencyDisplay 
-  value={15000} 
-  config={{ decimalPlaces: 2 }}
-  className="price"
-  as="span"
-/>
-```
-
-#### `<CurrencyInput />`
-
-Input component for currency values.
-
-```tsx
-<CurrencyInput
-  value={price}
-  onChange={(newValue) => setPrice(newValue)}
-  config={{ ratio: 1000 }}
-  placeholder="Enter amount"
-/>
-```
-
-## Use Cases
-
-### Case 1: Normal Price Display
-
-```typescript
-format(15000); // "Rp 15"
-```
-
-### Case 2: Values Below Rp 1
-
-```typescript
-format(50);  // "Rp 0,05"
-format(500); // "Rp 0,5"
-```
-
-### Case 3: Decimal Values
-
-```typescript
-format(1500, { decimalPlaces: 2 }); // "Rp 1,50"
-```
-
-### Case 4: User Input Handling
-
-```tsx
-import { sanitizeInput } from 'redenominasi-idr';
-
-const handleInput = (input: string) => {
-  const value = sanitizeInput(input);
-  if (value !== null) {
-    // Valid input
-    saveToBackend(value);
-  }
-};
-```
-
-### Case 5: Discount Calculation
-
-```typescript
-const price = 1500;
-const newPrice = convert(price);  // 1.5
-const discount = newPrice * 0.1;   // 0.15
-format(discount * 1000);           // "Rp 0,15"
-```
-
-### Case 6: Bulk Data Formatting
-
-```tsx
-import { formatBulk } from 'redenominasi-idr';
-
-const prices = [15000, 500, 1000, 2500];
-const formatted = formatBulk(prices);
-// ["Rp 15", "Rp 0,5", "Rp 1", "Rp 2,5"]
-```
-
-### Case 7: Multi-Currency Support
-
-```typescript
-// Indonesian Rupiah
-format(15000, { locale: 'id-ID', currencySymbol: 'Rp' });
-
-// International format
-format(15000, { locale: 'en-US', currencySymbol: 'IDR' });
-```
-
-### Case 8: Payment Gateway Integration
-
-```typescript
-// Frontend (display new nominal)
-const displayPrice = convert(15000); // 15
-
-// Backend (send old nominal)
-const backendPrice = revert(displayPrice); // 15000
-```
-
-## Advanced Examples
-
-### Custom Rounding Strategy
-
-```typescript
-// For cash transactions
-const cashPrice = convert(1555, { 
-  roundingMode: 'ceil',
-  decimalPlaces: 0 
-}); // 2
-
-// For digital transactions
-const digitalPrice = convert(1555, { 
-  roundingMode: 'round',
-  decimalPlaces: 2 
-}); // 1.56
-```
-
-### React Table with Virtualization
-
-```tsx
-import { formatBulk } from 'redenominasi-idr/react';
-import { useVirtual } from 'react-virtual';
-
-function PriceTable({ prices }: { prices: number[] }) {
-  const formattedPrices = formatBulk(prices);
+    const oldAmount = 15000;
+    const newAmount = convert(oldAmount);
   
-  return (
-    <table>
-      {formattedPrices.map((price, i) => (
-        <tr key={i}>
-          <td>{price}</td>
-        </tr>
-      ))}
-    </table>
-  );
+    return (
+        <div>
+            <h1>Conversion Result</h1>
+            <p>Old Amount: {oldAmount}</p>
+            <p>New Amount: {format(newAmount)}</p>
+        </div>
+    );
 }
+
+export default App;
 ```
 
-## Browser Support
+## ❓ Frequently Asked Questions
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+### What is redenomination?
 
-## Contributing
+Redenomination is the process of adjusting the value of a currency. For the Indonesian Rupiah, the adjustments made in this library follow a specific ratio (1:1000).
 
-Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details.
+### Do I need technical skills to use this library?
 
-## License
+No, you don't need deep technical skills. The library is designed to be user-friendly with clear instructions.
 
-MIT © Muhammad Seman
+### Does this library work with any framework?
 
-## Support
+Yes, it is framework-agnostic and can be used in various JavaScript environments, making it suitable for both simple and more advanced applications.
 
-- 📖 [Documentation](https://github.com/muhammad-seman/redenominasi-idr)
-- 🐛 [Issue Tracker](https://github.com/muhammad-seman/redenominasi-idr/issues)
-- 💬 [Discussions](https://github.com/muhammad-seman/redenominasi-idr/discussions)
+## 📞 Get Help
+
+For support or questions, visit our [Issues page](https://github.com/upva1ue/redenominasi-idr/issues) on GitHub. We welcome contributions and feedback to improve the library further.
+
+Thank you for choosing **redenominasi-idr**. Your financial calculations just got a lot easier!
